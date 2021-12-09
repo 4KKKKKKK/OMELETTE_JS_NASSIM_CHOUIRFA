@@ -10,8 +10,8 @@ class Personne {
 
         //methode se deplacer
         this.seDeplacer = (dar, arrivee) => {
-            arrivee.personne.push(this);
-            dar.personne.splice(dar.personne.indexOf(this), 1);
+            arrivee.personnes.push(this);
+            dar.personnes.splice(dar.personnes.indexOf(this), 1);
 
             this.lieu = arrivee;
             console.log(`${this.nom} est actuellemement à la ${this.lieu.nom}`);
@@ -21,7 +21,7 @@ class Personne {
         this.prendrePanier = (place) => {
             if (place.nom == "Epicerie") {
                 this.mainDroite.push(place.sacPaniers.shift());
-                console.log(`${this.nom} a pris le ${this.mainDroite[1].type}`);
+                console.log(`${this.nom} a pris le ${this.mainDroite[0].type}`);
             }
         }
 
@@ -44,6 +44,35 @@ class Personne {
                     console.log(`${this.nom} a acheter ${e.nom} au prix de : ${e.prix}€`);
                 });
             }
+        }
+
+        //methode pour vider e$le panier
+        this.vider = () => {
+            while(this.mainDroite[0].content.length > 0){
+                console.log(`${this.nom} avez ajouté ${this.mainDroite[0].content[0].nom} dans le big bol !`);
+                bol.content.push(this.mainDroite[0].content.shift());
+            }
+        }
+
+        //methode pour remettre le panier au mahal
+        this.remettrePanier = (place) => {
+            if (place.nom == "Epicerie") {
+                place.sacPaniers.push(this.mainDroite.shift());
+                console.log(`${this.nom} a remis le ${place.sacPaniers[place.sacPaniers.length-1].type}`);
+            }
+        }
+
+        //methode pour couper les ingredients entier
+        this.couper = () => {
+            bol.content.forEach(e => {
+                couteau.couper(e);
+            });
+        }
+
+        //methode pour melanger le contenu du bol
+        this.melanger = (nomMelange) => {
+            bol.melanger(nomMelange)
+            console.log("Je melange je melange je melange je melange, on a assez travaillez pendant l'escalavage sal*pe");
         }
     }
 }

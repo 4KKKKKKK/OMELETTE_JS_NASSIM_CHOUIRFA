@@ -32,12 +32,12 @@ epicerie.sacPaniers = [{
 
 // Ingrédients
 
-let oignon = new Ingredients("Oignon", "entier", 1);
-let oeuf = new Ingredients("Oeuf", "entier", 3);
-let sel = new Ingredients("Sel", "moulu", 1);
-let cumin = new Ingredients("Cumin", "moulu", 1);
-let fromage = new Ingredients("Fromage", "entier", 1);
-let eau = new Ingredients("Eau", "entier", 1);
+let oignon = new Ingredients("un oignon", "entier", 1);
+let oeuf = new Ingredients("3 oeufs", "entier", 3);
+let sel = new Ingredients("du sel", "moulu", 1);
+let cumin = new Ingredients("du cumin", "moulu", 1);
+let fromage = new Ingredients("du fromage", "entier", 1);
+let eau = new Ingredients("de l'eau", "liquide", 1);
 
 epicerie.ingredients = [oignon, oeuf, sel, cumin, fromage, eau];
 
@@ -45,7 +45,13 @@ epicerie.ingredients = [oignon, oeuf, sel, cumin, fromage, eau];
 
 let couteau = {
     nom: "Couteau",
-    action: "coupé"
+    action: "coupé",
+    couper(ingredient){
+        if (ingredient.etat == "entier") {
+            ingredient.etat = "coupé";
+            console.log(`${nassim.nom} découpe ${ingredient.nom}` );
+        }
+    }
 }
 
 let poele = {
@@ -61,11 +67,15 @@ let poele = {
 let bol = {
     nom: "Bol",
     content: [],
-    melanger(nomMelange) {
+    melanger(nomMelange){
         let newMelange = {
-            nom: "nomMelange",
-            etat: "pas cuit"
+            nom : nomMelange,
+            etat : "pas cuit"
         }
+        while(this.content.length > 0) {
+            this.content.shift();
+        }
+        this.content.push(newMelange);
     }
 }
 
