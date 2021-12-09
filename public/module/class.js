@@ -26,14 +26,7 @@ class Personne {
         }
 
         //methode pour mettre des ingrédients dans son panier
-        this.prendreIngredients = (place) => {
-            if (place.nom == "Epicerie") {
-                place.ingredients.forEach(e => {
-                    this.mainGauche[0].content.push(e);
-                    console.log(`${this.nom} a mis ${place.nom} dans son panier !`);
-                });
-            }
-        }
+        
 
         //mzthode pour acheter els ingrédients pris
         this.payerArticle = (place) =>{
@@ -41,7 +34,7 @@ class Personne {
                 place.ingredients.forEach(e => {
                     this.mainDroite[0].content.push(e);
                     this.argent -= e.prix;
-                    console.log(`${this.nom} a acheter ${e.nom} au prix de : ${e.prix}€`);
+                    console.log(`${this.nom} a acheter ${e.nom} au prix de : ${e.prix}€. Il lui reste ${this.argent}`);
                 });
             }
         }
@@ -73,6 +66,12 @@ class Personne {
         this.melanger = (nomMelange) => {
             bol.melanger(nomMelange)
             console.log("Je melange je melange je melange je melange, on a assez travaillez pendant l'escalavage sal*pe");
+        }
+
+        //methode pour vider le bol
+        this.viderBol = () => {
+            poele.content.push(bol.content.shift());
+            console.log(`${this.nom} vide le bol big bol dans la poele`);
         }
     }
 }

@@ -57,11 +57,11 @@ let couteau = {
 let poele = {
     nom: "Poêle",
     content: [],
-    cuir() {
-        setTimeout(() => {
-            this.content[0].etat = "cuit";
-        }, 4000)
-    }
+    cuir(){
+        setTimeout(()=> {this.content[0].etat = "cuite";
+        console.log(`L'omelette de ${nassim.nom} est prête !`);
+    }, 4000)
+    } 
 }
 
 let bol = {
