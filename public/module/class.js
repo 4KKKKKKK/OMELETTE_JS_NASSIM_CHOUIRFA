@@ -1,5 +1,7 @@
 import { epicerie, bol, couteau, poele} from "./instances.js";
 
+
+//Déclaration des class
 class Personne {
     constructor(nom, lieu, argent) {
         this.nom = nom;
