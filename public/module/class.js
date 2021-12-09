@@ -25,9 +25,6 @@ class Personne {
             }
         }
 
-        //methode pour mettre des ingrédients dans son panier
-        
-
         //mzthode pour acheter els ingrédients pris
         this.payerArticle = (place) =>{
             if (place.nom == "Epicerie") {
