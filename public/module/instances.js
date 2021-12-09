@@ -1,3 +1,9 @@
+import {
+    Personne,
+    Lieu,
+    Ingredients
+} from "./class.js"
+
 // Personnage
 
 let nassim = new Personne("Nassim", "nullePart", 100);
@@ -6,7 +12,9 @@ let nassim = new Personne("Nassim", "nullePart", 100);
 
 let maison = new Lieu("Maison", []);
 let epicerie = new Lieu("Epicerie", []);
+let nullePart = new Lieu('Nulle Part', []);
 
+//Paniers
 epicerie.sacPaniers = [{
         type: "panier Carré",
         content: []
@@ -60,3 +68,19 @@ let bol = {
         }
     }
 }
+
+export {
+    maison,
+    epicerie,
+    nassim,
+    oignon,
+    oeuf,
+    sel,
+    cumin,
+    fromage,
+    eau,
+    bol,
+    couteau,
+    poele,
+    nullePart
+};

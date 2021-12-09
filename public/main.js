@@ -1,0 +1,1 @@
+import {maison,epicerie,nassim,bol,poele,nullePart} from "./module/instances.js";
